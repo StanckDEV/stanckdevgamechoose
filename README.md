@@ -25,9 +25,12 @@ Per questo progetto ho puntato sulla leggerezza assoluta, garantendo un caricame
 * **Zero Bloatware:** Niente pubblicità invasiva, niente caricamenti infiniti. Solo il link e la descrizione.
 
 ## 📁 Struttura del Repository
-```text
-.
+text
 ├── index.html      # Pagina principale e logica JS
 ├── style.css       # Design e gestione responsive
 ├── favicon.png     # Logo ufficiale stanckDEV
 └── README.md       # Questa documentazione# stanckdevgamechoose
+
+Author
+stanckDEV * Email: stanckdev.lab@gmail.com
+• GitHub: @StanckDEV
