@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stanckDEV | I Migliori Browser Game</title>
+    
+    <meta name="description" content="La selezione definitiva dei migliori giochi browser-based. Eaglercraft, FPS e Arcade.">
+    
+    <meta property="og:title" content="Stanckdev Game Choose | Selezione Giochi">
+    <meta property="og:description" content="Niente blocchi, niente installazioni. Scopri i migliori giochi free-to-play.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://stanckdevgamechoose.vercel.app/">
+    <meta property="og:site_name" content="stanckDEV">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&family=Fira+Code:wght@400;500&display=swap');
+
+        :root {
+            --bg: #ffffff;
+            --sidebar-bg: #f8f8f8;
+            --text-main: #1a1a1a;
+            --text-muted: #666666;
+            --accent: #000000;
+            --border: #e5e5e5;
+            --highlight: #000000;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Outfit', sans-serif;
+            display: flex;
+            flex-direction: row;
+        }
+
+        /* --- SIDEBAR DESKTOP --- */
+        nav {
+            width: 280px;
+            height: 100vh;
+            background: var(--sidebar-bg);
+            border-right: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            padding: 60px 30px;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+            z-index: 100;
+        }
+
+        .logo { font-weight: 700; font-size: 1.3rem; margin-bottom: 40px; letter-spacing: -1px; }
+
+        .nav-links { list-style: none; }
+        .nav-links li { margin-bottom: 15px; }
+        .nav-links a { 
+            text-decoration: none; 
+            color: var(--text-muted); 
+            font-size: 0.9rem; 
+            transition: 0.3s; 
+            display: block;
+            padding: 5px 0;
+        }
+
+        .nav-links a.active { 
+            color: var(--accent); 
+            font-weight: 700; 
+            padding-left: 10px;
+            border-left: 2px solid var(--accent);
+        }
+
+        /* --- CONTENUTO --- */
+        main { flex: 1; padding: 80px 8%; max-width: 1000px; }
+
+        header { margin-bottom: 50px; }
+        header h1 { font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1; letter-spacing: -2px; margin-bottom: 20px; }
+        header p { font-size: 1.2rem; color: var(--text-muted); line-height: 1.6; }
+
+        section { margin-bottom: 60px; padding-top: 20px; }
+        .category-info { font-family: 'Fira Code', monospace; font-size: 0.75rem; color: var(--text-muted); margin-bottom: 10px; display: block; }
+        h2 { font-size: 2.2rem; margin-bottom: 40px; letter-spacing: -1px; border-bottom: 3px solid var(--accent); display: inline-block; }
+
+        .editor-entry { margin-bottom: 40px; padding: 30px; border: 1px solid var(--border); border-radius: 2px; }
+        h3 { font-size: 1.8rem; margin-bottom: 15px; }
+        .desc-parlata { font-size: 1.1rem; line-height: 1.7; margin-bottom: 20px; color: #333; }
+        .pro-tip { background: #fffbe6; padding: 15px; border-left: 3px solid #f1c40f; font-size: 0.95rem; font-style: italic; margin-top: 15px; }
+        
+        /* Rendi i link del footer uguali a quelli del resto del sito */
+        footer a {
+        color: var(--text-main);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.9rem;
+        transition: 0.3s;
+        border-bottom: 2px solid transparent; /* Per l'effetto hover */
+        }
+
+        footer a:hover {
+        border-bottom: 2px solid var(--accent); /* La linea nera che compare al passaggio */
+        color: var(--text-muted);
+        }
+
+        .logo {
+        display: flex;
+        flex-direction: column; /* Mette l'immagine sopra il testo */
+        align-items: flex-start;
+        gap: 18px; /* Spazio tra immagine e scritta */
+        margin-bottom: 40px;
+        }
+
+        .sidebar-logo {
+        width: 80px;      /* Regola questa grandezza come preferisci */
+        height: auto;     /* Mantiene le proporzioni */
+        border-radius: 8px; /* Opzionale: se vuoi gli angoli leggermente arrotondati */
+        display: block;
+        }
+
+        /* Se vuoi che il logo e il nome siano sulla stessa riga, usa questo invece: */
+        /*
+        .logo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        }
+        */
+
+        /* Stile per il link di installazione */
+        .install-link {
+            display: block;
+            margin-top: 15px;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        /* --- RESPONSIVE MOBILE --- */
+        @media (max-width: 850px) {
+            body { flex-direction: column; }
+            nav { 
+                width: 100%; 
+                height: auto; 
+                padding: 15px; 
+                position: sticky; 
+                top: 0; 
+                border-right: none; 
+                border-bottom: 1px solid var(--border);
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .logo { margin-bottom: 0; font-size: 1rem; }
+            .nav-links { display: none; }
+            main { padding: 40px 20px; }
+            header h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="sidebar"><div class="logo">
+        <img src="/favicon.png" alt="Logo StanckDEV" class="sidebar-logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#sandbox" class="nav-item">01. Mondi Aperti</a></li>
+            <li><a href="#fps" class="nav-item">02. Sparatutto (FPS)</a></li>
+            <li><a href="#arcade" class="nav-item">03. Arcade & Casual</a></li>
+            <li><a href="#retro" class="nav-item">04. Retro & Emulatori</a></li>
+            <li><a href="#sport" class="nav-item">05. Sport & Fisica</a></li>
+            <li><a href="#highperf" class="nav-item">06. High Performance</a></li>
+            <li><a href="#logic" class="nav-item">07. Logica & Strategia</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <header>
+            <h1>I Migliori Giochi <br>per le ore buche</h1>
+            <p>Una selezione curata di titoli free-to-play e web-based. Niente blocchi, niente installazioni e massima resa.</p>
+        </header>
+
+        <section id="sandbox">
+            <h2>Mondi Aperti</h2>
+            <article class="editor-entry">
+                <h3>Eaglercraft</h3>
+                <p class="desc-parlata">Il "falso" più famoso e funzionale di sempre. È letteralmente Minecraft 1.8 giocabile interamente nel browser. Supporta server multiplayer, skin personalizzate e non richiede Java.</p>
+                <p class="install-link">Gioca subito a questo <a href="https://eaglercraft.com/" target="_blank">link</a></p>
+            </article>
+        </section>
+
+        <section id="fps">
+            <h2>Sparatutto</h2>
+            <article class="editor-entry">
+                <h3>Krunker.io</h3>
+                <p class="desc-parlata">Il Re incontrastato degli FPS da browser. Frenetico, leggerissimo.</p>
+                <p class="install-link">Gioca subito a questo <a href="https://krunker.io" target="_blank">link</a></p>
+            </article>
+            <article class="editor-entry">
+                <h3>Venge.io</h3>
+                <p class="desc-parlata">Un'alternativa più tattica a Krunker, con una grafica che ricorda molto Valorant o Overwatch. Molto fluido e con server europei sempre attivi.</p>
+                <p class="install-link">Gioca subito a questo <a href="https://venge.io" target="_blank">link</a></p>
+            </article>
+        </section>
+
+        <section id="arcade">
+            <h2>Arcade & Casual</h2>
+            <article class="editor-entry">
+                <h3>Slope</h3>
+                <p class="desc-parlata">Semplice, ipnotico e difficilissimo. Devi guidare una palla su una pista al neon che scende all'infinito schivando gli ostacoli rossi. Una partita tira l'altra.</p>
+                <p class="install-link">Gioca subito a questo <a href="https://slopegame-online.com/" target="_blank">link</a></p>
+            </article>
+        </section>
+
+        <section id="retro">
+            <h2>Retro & Emulatori</h2>
+            <article class="editor-entry">
+                <h3>Super Mario 64 (Web)</h3>
+                <p class="desc-parlata">Tutto il capolavoro per Nintendo 64 decompilato e fatto girare in HTML5. Un vero e proprio miracolo tecnico, perfetto per farsi una corsa nel castello di Peach senza installare nessun emulatore.</p>
+                <div class="pro-tip">Collega un controller Bluetooth al PC se puoi, l'esperienza cambia radicalmente!</div>
+                <p class="install-link">Gioca subito a questo <a href="https://supermario64.io/" target="_blank">link</a></p>
+            </article>
+        </section>
+
+        <section id="sport">
+            <h2>Sport & Fisica</h2>
+            <article class="editor-entry">
+                <h3>Rocket Goal</h3>
+                <p class="desc-parlata">È essenzialmente Rocket League nel browser. Motore fisico 3D, turbo e acrobazie aeree. Non è il solito gioco di calcio: qui devi imparare a colpire la palla con la giusta inclinazione e gestire il boost per volare verso la porta avversaria.</p>
+                <div class="pro-tip">Usa il tasto del turbo con parsimonia, ti serve per i recuperi dell'ultimo secondo.</div>
+                <p class="install-link">Scendi in campo su <a href="https://rocketgoal.io/" target="_blank">Rocket Goal</a></p>
+            </article>
+            <article class="editor-entry">
+                <h3>Basket Slam Dunk 2</h3>
+                <p class="desc-parlata">Un simulatore di basket con una fisica dei rimbalzi molto curata. Le animazioni sono fluide e il sistema di tiro richiede un timing perfetto. Molto soddisfacente da giocare in 1vs1.</p>
+                <p class="install-link">Gioca subito a questo <a href="https://www.crazygames.com/game/basket-slam-dunk-2" target="_blank">link</a></p>
+            </article>
+        </section>
+
+        <section id="highperf">
+            <h2>High Performance</h2>
+            <article class="editor-entry">
+                <h3>Poly Track</h3>
+                <p class="desc-parlata">Ispirato a TrackMania, è un racing game basato sulla precisione millimetrica. Grafica minimalista 3D e un motore fisico che punisce ogni errore. Se ami battere i record di tempo, questo è il tuo gioco.</p>
+                <div class="pro-tip">Include un editor di mappe: puoi creare la tua pista e farla provare ai tuoi compagni.</div>
+                <p class="install-link">Gioca subito a questo <a href="https://poly-track.one/" target="_blank">link</a></p>
+            </article>
+            <article class="editor-entry">
+                <h3>Shell Shockers</h3>
+                <p class="desc-parlata">Uno sparatutto tecnicamente impressionante dove tutti sono uova. Ha classi di armi bilanciate e mappe 3D complesse. Nonostante il tema assurdo, è uno degli FPS web più stabili e giocati al mondo.</p>
+                <p class="install-link">Gioca subito a questo <a href="https://shellshock.io" target="_blank">link</a></p>
+            </article>
+        </section>
+
+        <section id="logic">
+            <h2>Logica & Strategia</h2>
+            <article class="editor-entry">
+                <h3>2048 (Original)</h3>
+                <p class="desc-parlata">Il gioco di logica più discreto di sempre. Altamente additivo e perfetto per sfidare se stessi.</p>
+                <p class="install-link">Gioca subito a questo <a href="https://play2048.co/" target="_blank">link</a></p>
+            </article>
+            <article class="editor-entry">
+                <h3>Chess.com</h3>
+                <p class="desc-parlata">La piattaforma definitiva per gli scacchi. Puoi giocare contro l'IA o contro altri giocatori in tempo reale.</p>
+                <p class="install-link">Gioca subito a questo <a href="https://www.chess.com/" target="_blank">link</a></p>
+            </article>
+        </section>
+
+        <footer style="padding: 20px 0; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.8rem;">
+            © 2026 stanckDEV. Made with 🤍<br>
+        <a href="mailto:stanckdev.lab@gmail.com">stanckdev.lab@gmail.com</a><br>
+        <a href="https://github.com/StanckDEV">github</a>
+        </footer>
+    </main>
+
+    <script>
+        // SCROLL SPY 
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".nav-item");
+
+        window.addEventListener("scroll", () => {
+            let current = "";
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach((link) => {
+                link.classList.remove("active");
+                if (link.getAttribute("href").includes(current)) {
+                    link.classList.add("active");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
